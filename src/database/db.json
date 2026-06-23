@@ -1,0 +1,32 @@
+[
+  {
+    "id": 1,
+    "name": "Sony WH-1000XM5 Wireless Headphones",
+    "description": "Premium noise-canceling over-ear headphones featuring industry-leading sound quality, exceptional call clarity, and up to 30 hours of battery life.",
+    "price": 398
+  },
+  {
+    "id": 2,
+    "name": "Apple iPad Air (M2)",
+    "description": "Powerful 11-inch tablet equipped with the Apple M2 chip, a liquid retina display, 128GB storage, and support for the Apple Pencil Pro.",
+    "price": 599
+  },
+  {
+    "id": 3,
+    "name": "Logitech MX Master 3S",
+    "description": "An ergonomic wireless performance mouse featuring 8K DPI tracking, quiet click switches, and a MagSpeed electromagnetic scroll wheel for ultimate productivity.",
+    "price": 100
+  },
+  {
+    "id": 4,
+    "name": "Anker 737 Power Bank (PowerCore 24K)",
+    "description": "An ultra-high-capacity 24,000mAh portable charger with a smart digital display and 140W fast-charging capabilities for laptops and smartphones.",
+    "price": 150
+  },
+  {
+    "id": 5,
+    "name": "Kindle Paperwhite (16 GB)",
+    "description": "A waterproof e-reader featuring a 6.8-inch glare-free display, an adjustable warm light, and up to 10 weeks of battery life.",
+    "price": 150
+  }
+]
