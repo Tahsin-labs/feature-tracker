@@ -1,5 +1,6 @@
 import { createServer, IncomingMessage, Server, ServerResponse } from "http";
 import { routeHandler } from "./routes/routes";
+import config from "./config";
 
 // to create a server
 const server: Server = createServer((req: IncomingMessage, res: ServerResponse) => {
@@ -10,6 +11,6 @@ const server: Server = createServer((req: IncomingMessage, res: ServerResponse) 
 
 
 
-server.listen(5000, () => {
-    console.log("server is running on the post 5000")
+server.listen(config.port, () => {
+    console.log(`server is running on the post ${config.port}`)
 })

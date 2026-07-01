@@ -16,6 +16,7 @@ import type { IncomingMessage, ServerResponse } from "http";
 import { insertProduct, readProduct } from "../service/product.service";
 import type { IProduct } from "../type/product.type";
 import { parseBody } from "../utility/parseBody";
+import { sendResponse } from "../utility/sendResponce";
 
 export const productController = async (req: IncomingMessage, res: ServerResponse) => {
     // console.log("request",req)
@@ -37,21 +38,48 @@ export const productController = async (req: IncomingMessage, res: ServerRespons
         //         name:"product -3"
         //     }
         // ]
-        const products = readProduct();
+       
 
-        res.writeHead(200, { "content-type": "application/json" });
-        res.end(JSON.stringify({ message: "this is product route", data: products }));
+        // res.writeHead(200, { "content-type": "application/json" });
+        // res.end(JSON.stringify({ message: "this is product route", data: products }));
+
+       try {
+         const products = readProduct();
+         return sendResponse(res, 200, true,"products retrived succeefully" , products)
+       } catch (error) {
+         return sendResponse(res, 500, false,"something went wrong" , error)
+       }
+         
+
+
     }
 
     //  get single product by id 
 
     else if (method === "GET" && id !== null) {
-        const products = readProduct();
-        const product = products.find((p: IProduct) => p.id === id);
-        console.log(product)
 
-        res.writeHead(200, { "content-type": "application/json" });
-        res.end(JSON.stringify({ message: "products found", data: product }));
+      try {
+          const products = readProduct();
+        const product = products.find((p: IProduct) => p.id === id);
+        // console.log(product)
+
+        if(!product){
+         return sendResponse(res, 404, false, "product not found")
+
+        }
+
+        // res.writeHead(200, { "content-type": "application/json" });
+        // res.end(JSON.stringify({ message: "products found", data: product }));
+          return sendResponse(res, 200, true,"products retrived succeefully" , products)
+        
+      } catch (error) {
+         return sendResponse(res, 500, false,"something went wrong" , error)
+      }
+
+
+
+
+      
     }
 
 
